@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Mobile Repair | Page Redirect</title>
+  <script>
+    // GitHub Pages SPA 404 Redirect Handler
+    // Preserves target hash or path and redirects to index.html
+    (function() {
+      var path = window.location.pathname;
+      var repoName = path.split('/')[1] || '';
+      var targetHash = window.location.hash || '#home';
+      window.location.replace(window.location.origin + (repoName ? '/' + repoName : '') + '/' + targetHash);
+    })();
+  </script>
+  <style>
+    body {
+      background: #090d16;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .redirect-card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      padding: 2.5rem;
+      border-radius: 16px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    a {
+      color: #00f2fe;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-card">
+    <h2>Redirecting to Pulse Repair...</h2>
+    <p>If you are not redirected automatically, <a href="index.html">click here to return to Home</a>.</p>
+  </div>
+</body>
+</html>

@@ -1,356 +1,333 @@
 /* ==========================================================================
-   AURA KITCHENS - INTERACTIVE SCRIPT
-   Routing, Before/After Slider, Cost Estimator, Form Validation & Modals
+   PULSE MOBILE REPAIR & TECH LABS - INTERACTIVE LOGIC & ROUTER
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initRouter();
-  initMobileMenu();
-  initBeforeAfterSlider();
-  initCostCalculator();
-  initFaqAccordion();
-  initForms();
-  initVirtualTourModal();
-});
 
-/* --------------------------------------------------------------------------
-   1. MULTI-PAGE SPA ROUTER
-   -------------------------------------------------------------------------- */
-function initRouter() {
+  // --- 1. SINGLE-PAGE SPA HASH ROUTER ---
+  const views = document.querySelectorAll('.page-view');
   const navLinks = document.querySelectorAll('[data-page]');
-  const pageViews = document.querySelectorAll('.page-view');
+  const mainHeader = document.getElementById('navbar');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mainNav = document.getElementById('mainNav');
 
   function navigateTo(pageId) {
-    if (!pageId) pageId = 'home';
-    
-    // Normalize pageId (strip # if present)
-    const cleanId = pageId.replace('#', '');
-    const targetPage = document.getElementById(`page-${cleanId}`);
+    let targetId = pageId.replace('#', '') || 'home';
+    const targetSection = document.getElementById(`page-${targetId}`);
 
-    if (!targetPage) return;
+    if (!targetSection) {
+      targetId = 'home';
+    }
 
-    // Hide all pages
-    pageViews.forEach(page => {
-      page.classList.remove('active');
+    views.forEach(view => {
+      view.classList.remove('active');
     });
 
-    // Show target page
-    targetPage.classList.add('active');
+    const activeView = document.getElementById(`page-${targetId}`);
+    if (activeView) {
+      activeView.classList.add('active');
+    }
 
-    // Update active nav links
     navLinks.forEach(link => {
-      const linkPage = link.getAttribute('data-page');
-      if (linkPage === cleanId) {
+      const pageAttr = link.getAttribute('data-page');
+      if (pageAttr === targetId) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
       }
     });
 
-    // Close mobile menu if open
-    const mainNav = document.getElementById('mainNav');
-    if (mainNav) mainNav.classList.remove('active');
+    // Close mobile nav menu if open
+    if (mainNav) {
+      mainNav.classList.remove('active');
+    }
 
-    // Scroll to top
+    // Scroll to top of view
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Handle click on routing links
-  navLinks.forEach(link => {
+  // Handle Hash Changes
+  window.addEventListener('hashchange', () => {
+    navigateTo(window.location.hash);
+  });
+
+  // Initial Load Navigation (Always run on page load, defaulting to 'home')
+  navigateTo(window.location.hash || 'home');
+
+  // Click Delegations for data-page links
+  document.querySelectorAll('a[data-page]').forEach(link => {
     link.addEventListener('click', (e) => {
-      const pageId = link.getAttribute('data-page');
-      if (pageId) {
-        e.preventDefault();
-        window.location.hash = pageId;
-        navigateTo(pageId);
+      e.preventDefault();
+      const targetPage = link.getAttribute('data-page');
+      if (window.location.hash !== `#${targetPage}`) {
+        window.location.hash = targetPage;
       }
+      navigateTo(targetPage);
     });
   });
 
-  // Handle Hash Changes & Initial Load
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.substring(1);
-    navigateTo(hash || 'home');
-  });
-
-  // Trigger initial route
-  const initialHash = window.location.hash.substring(1);
-  navigateTo(initialHash || 'home');
-}
-
-/* --------------------------------------------------------------------------
-   2. MOBILE MENU TOGGLE
-   -------------------------------------------------------------------------- */
-function initMobileMenu() {
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mainNav = document.getElementById('mainNav');
-
+  // Mobile Menu Toggle
   if (mobileToggle && mainNav) {
     mobileToggle.addEventListener('click', () => {
       mainNav.classList.toggle('active');
     });
   }
-}
 
-/* --------------------------------------------------------------------------
-   3. BEFORE & AFTER IMAGE SLIDER
-   -------------------------------------------------------------------------- */
-function initBeforeAfterSlider() {
-  const slider = document.getElementById('baSlider');
-  const beforeImg = document.getElementById('baBefore');
-  const handle = document.getElementById('baHandle');
-
-  if (!slider || !beforeImg || !handle) return;
-
-  let isDragging = false;
-
-  function setSliderPosition(x) {
-    const rect = slider.getBoundingClientRect();
-    let offsetX = x - rect.left;
-    
-    // Clamp values between 0 and rect.width
-    if (offsetX < 0) offsetX = 0;
-    if (offsetX > rect.width) offsetX = rect.width;
-
-    const percentage = (offsetX / rect.width) * 100;
-
-    beforeImg.style.width = `${percentage}%`;
-    handle.style.left = `${percentage}%`;
-  }
-
-  // Mouse Events
-  handle.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    e.preventDefault();
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDragging = false;
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    setSliderPosition(e.clientX);
-  });
-
-  // Touch Events for Mobile
-  handle.addEventListener('touchstart', (e) => {
-    isDragging = true;
-  });
-
-  window.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  window.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    setSliderPosition(e.touches[0].clientX);
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. INSTANT KITCHEN REMODEL COST CALCULATOR
-   -------------------------------------------------------------------------- */
-function initCostCalculator() {
-  const calculator = document.getElementById('home-calculator');
-  if (!calculator) return;
-
-  const sizeInputs = document.querySelectorAll('input[name="kitchenSize"]');
-  const finishSelect = document.getElementById('finishGrade');
-  const optIsland = document.getElementById('optIsland');
-  const optSmart = document.getElementById('optSmart');
-  const optPantry = document.getElementById('optPantry');
-  const optAppliances = document.getElementById('optAppliances');
-
-  const calcPriceDisplay = document.getElementById('calcPriceDisplay');
-  const bCabinetry = document.getElementById('bCabinetry');
-  const bSlabs = document.getElementById('bSlabs');
-  const bLabor = document.getElementById('bLabor');
-
-  const radioCards = document.querySelectorAll('.radio-card');
-
-  function calculateCost() {
-    // Base cost by footprint size
-    let selectedSize = 'small';
-    sizeInputs.forEach(input => {
-      if (input.checked) selectedSize = input.value;
-    });
-
-    let baseCost = 28000;
-    if (selectedSize === 'medium') baseCost = 42000;
-    if (selectedSize === 'large') baseCost = 65000;
-
-    // Finish grade multiplier
-    const finishGrade = finishSelect.value;
-    let multiplier = 1.0;
-    if (finishGrade === 'premier') multiplier = 1.35;
-    if (finishGrade === 'ultra') multiplier = 1.75;
-
-    let subtotal = baseCost * multiplier;
-
-    // Add-on features
-    let addonCost = 0;
-    if (optIsland && optIsland.checked) addonCost += 7500;
-    if (optSmart && optSmart.checked) addonCost += 4500;
-    if (optPantry && optPantry.checked) addonCost += 6000;
-    if (optAppliances && optAppliances.checked) addonCost += 14000;
-
-    const totalEstimate = Math.round(subtotal + addonCost);
-    const minRange = Math.round(totalEstimate * 0.9);
-    const maxRange = Math.round(totalEstimate * 1.15);
-
-    // Breakdown estimates
-    const cabinetryVal = Math.round(totalEstimate * 0.45);
-    const slabsVal = Math.round(totalEstimate * 0.30);
-    const laborVal = Math.round(totalEstimate * 0.25);
-
-    // Update DOM
-    if (calcPriceDisplay) {
-      calcPriceDisplay.textContent = `$${minRange.toLocaleString()} – $${maxRange.toLocaleString()}`;
+  // Header Scroll Shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      mainHeader.classList.add('scrolled');
+    } else {
+      mainHeader.classList.remove('scrolled');
     }
-    if (bCabinetry) bCabinetry.textContent = `$${cabinetryVal.toLocaleString()}`;
-    if (bSlabs) bSlabs.textContent = `$${slabsVal.toLocaleString()}`;
-    if (bLabor) bLabor.textContent = `$${laborVal.toLocaleString()}`;
+  });
+
+
+  // --- 2. LIVE REPAIR STATUS TRACKER LOGIC ---
+  const trackerForm = document.getElementById('trackerForm');
+  const trackerInput = document.getElementById('trackerTicketInput');
+  const trackerResult = document.getElementById('trackerResult');
+  const trackTicketCode = document.getElementById('trackTicketCode');
+  const trackDevice = document.getElementById('trackDevice');
+  const trackBadge = document.getElementById('trackBadge');
+
+  const demoTickets = {
+    'PULSE-8942': { device: 'iPhone 15 Pro', status: 'In Repair', step: 3, badgeClass: 'in-progress' },
+    'PULSE-1024': { device: 'Galaxy S24 Ultra', status: 'Ready for Pickup', step: 5, badgeClass: 'ready' },
+    'PULSE-7731': { device: 'Google Pixel 8', status: 'Diagnosed', step: 2, badgeClass: 'in-progress' }
+  };
+
+  if (trackerForm) {
+    trackerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = trackerInput.value.trim().toUpperCase();
+      if (!code) return;
+
+      const ticketData = demoTickets[code] || {
+        device: 'Smartphone Device',
+        status: 'In Diagnostic Check',
+        step: 2,
+        badgeClass: 'in-progress'
+      };
+
+      trackTicketCode.textContent = code;
+      trackDevice.textContent = ticketData.device;
+      trackBadge.textContent = ticketData.status;
+
+      // Update Pipeline Steps
+      for (let i = 1; i <= 5; i++) {
+        const stepEl = document.getElementById(`step-${i}`);
+        if (!stepEl) continue;
+        stepEl.classList.remove('completed', 'active');
+        if (i < ticketData.step) {
+          stepEl.classList.add('completed');
+        } else if (i === ticketData.step) {
+          stepEl.classList.add('active');
+        }
+      }
+
+      trackerResult.classList.add('active');
+    });
   }
 
-  // Update active state on radio cards
-  sizeInputs.forEach(input => {
-    input.addEventListener('change', () => {
-      radioCards.forEach(card => card.classList.remove('active'));
-      input.closest('.radio-card').classList.add('active');
-      calculateCost();
-    });
-  });
 
-  if (finishSelect) finishSelect.addEventListener('change', calculateCost);
-  [optIsland, optSmart, optPantry, optAppliances].forEach(item => {
-    if (item) item.addEventListener('change', calculateCost);
-  });
+  // --- 3. SERVICES CATALOG BRAND FILTER TABS ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const catalogItems = document.querySelectorAll('.catalog-item');
 
-  // Initial calculation
-  calculateCost();
-}
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-/* --------------------------------------------------------------------------
-   5. FAQ ACCORDION
-   -------------------------------------------------------------------------- */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
+      const filter = btn.getAttribute('data-filter');
 
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    if (questionBtn) {
-      questionBtn.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Close all accordion items
-        faqItems.forEach(el => el.classList.remove('active'));
-        
-        // Toggle current item if not active
-        if (!isActive) {
-          item.classList.add('active');
+      catalogItems.forEach(item => {
+        const itemBrand = item.getAttribute('data-brand');
+        if (filter === 'all' || itemBrand === filter) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
         }
       });
-    }
+    });
   });
-}
 
-/* --------------------------------------------------------------------------
-   6. FORMS & CONSULTATION BOOKING
-   -------------------------------------------------------------------------- */
-function initForms() {
-  const consultationForm = document.getElementById('consultationForm');
-  const newsletterForm = document.getElementById('newsletterForm');
 
-  if (consultationForm) {
-    consultationForm.addEventListener('submit', (e) => {
+  // --- 4. INSTANT REPAIR COST ESTIMATOR LOGIC ---
+  const brandCards = document.querySelectorAll('#estimatorBrandGrid .brand-option-card');
+  const modelSelect = document.getElementById('estimatorModelSelect');
+  const issueCheckboxes = document.querySelectorAll('.issues-checkbox-grid input[type="checkbox"]');
+  const fulfillmentSelect = document.getElementById('estimatorFulfillment');
+
+  const sumDevice = document.getElementById('sumDevice');
+  const sumRepairs = document.getElementById('sumRepairs');
+  const sumTime = document.getElementById('sumTime');
+  const sumTotalCost = document.getElementById('sumTotalCost');
+  const btnBookFromEstimator = document.getElementById('btnBookFromEstimator');
+
+  const deviceModelsByBrand = {
+    apple: ['iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 / 15 Plus', 'iPhone 14 Pro Max', 'iPhone 14 / 14 Pro', 'iPhone 13 / 13 Mini'],
+    samsung: ['Galaxy S24 Ultra', 'Galaxy S24 / S24+', 'Galaxy S23 Ultra', 'Galaxy Z Fold 5', 'Galaxy Z Flip 5'],
+    google: ['Google Pixel 8 Pro', 'Google Pixel 8', 'Google Pixel 7 Pro', 'Google Pixel 7a'],
+    ipad: ['iPad Pro 12.9 inch', 'iPad Air 5th Gen', 'iPad Mini 6th Gen', 'iPad 10th Gen']
+  };
+
+  let selectedBrand = 'apple';
+
+  function populateModels(brand) {
+    if (!modelSelect) return;
+    modelSelect.innerHTML = '';
+    const models = deviceModelsByBrand[brand] || deviceModelsByBrand.apple;
+    models.forEach(model => {
+      const opt = document.createElement('option');
+      opt.value = model;
+      opt.textContent = model;
+      modelSelect.appendChild(opt);
+    });
+  }
+
+  function calculateQuote() {
+    if (!modelSelect || !sumTotalCost) return;
+
+    let subtotal = 0;
+    let selectedIssueCount = 0;
+
+    issueCheckboxes.forEach(cb => {
+      if (cb.checked) {
+        subtotal += parseFloat(cb.getAttribute('data-price') || 0);
+        selectedIssueCount++;
+      }
+    });
+
+    const selectedOpt = fulfillmentSelect && fulfillmentSelect.selectedIndex >= 0 ? fulfillmentSelect.options[fulfillmentSelect.selectedIndex] : null;
+    const rawFee = selectedOpt ? selectedOpt.getAttribute('data-fee') : 0;
+    const fulfillmentFee = parseFloat(rawFee) || 0;
+    const grandTotal = subtotal + fulfillmentFee;
+
+    const currentModel = modelSelect.value || 'Smartphone';
+
+    sumDevice.textContent = currentModel;
+    sumRepairs.textContent = `${selectedIssueCount} Service${selectedIssueCount === 1 ? '' : 's'}`;
+    sumTime.textContent = selectedIssueCount > 2 ? '45-60 Mins' : '20-30 Mins';
+    sumTotalCost.textContent = `$${grandTotal.toFixed(2)}`;
+  }
+
+  // Brand selection listeners
+  brandCards.forEach(card => {
+    card.addEventListener('click', () => {
+      brandCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedBrand = card.getAttribute('data-brand');
+      populateModels(selectedBrand);
+      calculateQuote();
+    });
+  });
+
+  // Model & Checkbox listeners
+  if (modelSelect) {
+    modelSelect.addEventListener('change', calculateQuote);
+  }
+  issueCheckboxes.forEach(cb => {
+    cb.addEventListener('change', calculateQuote);
+  });
+  if (fulfillmentSelect) {
+    fulfillmentSelect.addEventListener('change', calculateQuote);
+  }
+
+  // Initialize estimator defaults
+  populateModels('apple');
+  calculateQuote();
+
+  // Estimator to Booking Bridge Button
+  if (btnBookFromEstimator) {
+    btnBookFromEstimator.addEventListener('click', () => {
+      const bookDeviceInput = document.getElementById('bookDeviceModel');
+      const bookNotesInput = document.getElementById('bookNotes');
+
+      if (bookDeviceInput && modelSelect) {
+        bookDeviceInput.value = modelSelect.value;
+      }
+      if (bookNotesInput && sumTotalCost) {
+        bookNotesInput.value = `Estimated Quote: ${sumTotalCost.textContent} (${sumRepairs.textContent}).`;
+      }
+
+      window.location.hash = 'contact';
+    });
+  }
+
+
+  // --- 5. BOOKING FORM & MODAL SUBMISSION ---
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingModal = document.getElementById('bookingModal');
+  const btnModalClose = document.getElementById('btnModalClose');
+
+  const modalTicketCode = document.getElementById('modalTicketCode');
+  const modalCustName = document.getElementById('modalCustName');
+  const modalCustDevice = document.getElementById('modalCustDevice');
+  const modalCustSlot = document.getElementById('modalCustSlot');
+  const modalCustType = document.getElementById('modalCustType');
+
+  // Pre-set Date picker to tomorrow
+  const bookDate = document.getElementById('bookDate');
+  if (bookDate) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    bookDate.value = tomorrow.toISOString().split('T')[0];
+  }
+
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const name = document.getElementById('fullName').value;
-      const email = document.getElementById('emailAddress').value;
 
-      showToast(`Thank you ${name}! Your consultation request has been submitted.`);
-      
-      showModal(`
-        <div style="text-align: center;">
-          <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
-          <h2 style="margin-bottom: 12px; color: var(--primary-copper);">Consultation Request Received</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">We have sent a confirmation email to <strong>${email}</strong>. One of our lead architects will contact you within 24 hours to finalize your appointment date.</p>
-          <button class="btn btn-primary" onclick="closeModal()">Great, Thank You</button>
-        </div>
-      `);
+      const name = document.getElementById('bookName').value;
+      const device = document.getElementById('bookDeviceModel').value;
+      const date = document.getElementById('bookDate').value;
+      const time = document.getElementById('bookTime').value;
+      const serviceType = document.getElementById('bookServiceType').value;
 
-      consultationForm.reset();
+      // Generate Ticket Code
+      const ticketNum = 'PULSE-' + Math.floor(10000 + Math.random() * 90000);
+
+      modalTicketCode.textContent = ticketNum;
+      modalCustName.textContent = name;
+      modalCustDevice.textContent = device;
+      modalCustSlot.textContent = `${date} @ ${time}`;
+      modalCustType.textContent = serviceType;
+
+      bookingModal.classList.add('active');
     });
   }
 
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('Thank you for subscribing to Aura Kitchens Design Trends!');
-      newsletterForm.reset();
-    });
-  }
-}
-
-/* --------------------------------------------------------------------------
-   7. MODAL & TOAST NOTIFICATION HELPERS
-   -------------------------------------------------------------------------- */
-function initVirtualTourModal() {
-  const tourBtn = document.getElementById('virtualTourBtn');
-  if (tourBtn) {
-    tourBtn.addEventListener('click', () => {
-      showModal(`
-        <div style="text-align: center;">
-          <h2 style="margin-bottom: 14px;">3D Virtual Showroom Tour</h2>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Explore our 4,500 sq.ft Flagship Studio interactively in photorealistic 3D environment.</p>
-          <div style="border-radius: 12px; overflow: hidden; height: 260px; margin-bottom: 20px; border: 1px solid var(--glass-border);">
-            <img src="assets/hero.png" style="width:100%; height:100%; object-fit:cover;" alt="Showroom 3D">
-          </div>
-          <button class="btn btn-primary" onclick="closeModal()">Close Tour</button>
-        </div>
-      `);
+  if (btnModalClose && bookingModal) {
+    btnModalClose.addEventListener('click', () => {
+      bookingModal.classList.remove('active');
+      if (bookingForm) bookingForm.reset();
+      window.location.hash = 'home';
     });
   }
 
-  const modalClose = document.getElementById('modalClose');
-  const globalModal = document.getElementById('globalModal');
-  if (modalClose && globalModal) {
-    modalClose.addEventListener('click', closeModal);
-    globalModal.addEventListener('click', (e) => {
-      if (e.target === globalModal) closeModal();
+
+  // --- 6. FAQ ACCORDIONS ---
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const faqItem = btn.parentElement;
+      const isOpen = faqItem.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        const ans = item.querySelector('.faq-answer');
+        if (ans) ans.style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        faqItem.classList.add('active');
+        const ans = faqItem.querySelector('.faq-answer');
+        if (ans) ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
     });
-  }
-}
+  });
 
-function showModal(htmlContent) {
-  const modalBody = document.getElementById('modalBody');
-  const globalModal = document.getElementById('globalModal');
-  if (modalBody && globalModal) {
-    modalBody.innerHTML = htmlContent;
-    globalModal.classList.add('active');
-  }
-}
-
-function closeModal() {
-  const globalModal = document.getElementById('globalModal');
-  if (globalModal) {
-    globalModal.classList.remove('active');
-  }
-}
-
-function showToast(message) {
-  const container = document.getElementById('toastContainer');
-  if (!container) return;
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = `<span>❖</span> <span>${message}</span>`;
-  container.appendChild(toast);
-
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(100%)';
-    setTimeout(() => toast.remove(), 300);
-  }, 4000);
-}
+});
