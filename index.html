@@ -1,10 +1,915 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-      <title>Aura Kitchen<title</
-<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Mobile Repair & Tech Labs | Express Smartphone & Electronics Repair</title>
+  <meta name="description"
+    content="Fast, reliable smartphone screen replacement, battery repair, water damage restoration, and micro-soldering. In-store 20-minute repairs or express mobile tech van service with 90-day warranty.">
+  <meta name="keywords"
+    content="phone repair, smartphone screen repair, iphone repair, samsung screen replacement, battery repair, water damage phone fix, mobile repair service near me">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
-      <h1>Welcom to Aura Kitchen Resturant</h1>
-      <p>Delicious meals, great taste and unforgettable moments.</p>
+
+  <!-- Navigation Header -->
+  <header class="site-header" id="navbar">
+    <div class="section-container header-container">
+      <a href="#home" class="brand-logo" data-page="home">
+        <div class="logo-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+          </svg>
+        </div>
+        <div class="logo-text">PULSE <span>REPAIR</span></div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link" data-page="services">Repair Services</a></li>
+          <li class="nav-item"><a href="#calculator" class="nav-link" data-page="calculator">Instant Estimator</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" data-page="contact">Book Repair & Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:08025687197" class="phone-quick-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>0802 568 7192
+          </span>
+        </a>
+        <a href="#calculator" class="btn btn-primary nav-cta" data-page="calculator">
+          <span>Get Instant Quote</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Multi-Page Single Page Router View Container -->
+  <main class="main-content">
+
+    <!-- PAGE 1: HOME -->
+    <section class="page-view active" id="page-home">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-glow-orb"></div>
+        <div class="section-container hero-grid">
+          <div class="hero-content">
+            <div class="section-tag">
+              <span class="dot"></span>
+              <span>Express 20-Min Diagnostics & Repairs</span>
+            </div>
+            <h1 class="hero-title">
+              Precision <span class="gradient-text">Smartphone & Tech Repair</span> In Minutes
+            </h1>
+            <p class="hero-subtext">
+              Don't let a shattered screen or dead battery ruin your day. We offer white-glove smartphone repair with
+              OEM-certified parts, 90-day comprehensive warranties, and express walk-in or mobile technician service.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#calculator" class="btn btn-primary" data-page="calculator">
+                <span>Calculate Repair Cost</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a href="#contact" class="btn btn-secondary" data-page="contact">
+                <span>Schedule Appointment</span>
+              </a>
+            </div>
+
+            <div class="trust-badges">
+              <div class="trust-item">
+                <svg class="trust-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div class="trust-text"><strong>90-Day Warranty</strong>Parts & Labor Guaranteed</div>
+              </div>
+              <div class="trust-item">
+                <svg class="trust-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <div class="trust-text"><strong>20-Min Express</strong>Most Repairs Done Same-Day</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-media-wrap">
+            <div class="hero-image-card">
+              <img src="assets/hero_phone_repair.png" alt="Pulse Phone Repair Precision Workbench">
+            </div>
+
+            <!-- Live Repair Status Tracker -->
+            <div class="repair-tracker-widget">
+              <div class="tracker-header">
+                <h3 class="tracker-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)"
+                    stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                  </svg>
+                  <span>Track Live Repair Status</span>
+                </h3>
+                <span style="font-size:0.75rem; color:var(--text-dim);">Try demo ID: <strong>PULSE-8942</strong></span>
+              </div>
+              <form class="tracker-form" id="trackerForm">
+                <input type="text" class="tracker-input" id="trackerTicketInput"
+                  placeholder="Enter Repair Ticket # (e.g. PULSE-8942)" required>
+                <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.25rem;">Track</button>
+              </form>
+              <div class="tracker-result" id="trackerResult">
+                <div class="status-info">
+                  <div><strong>Ticket:</strong> <span id="trackTicketCode">PULSE-8942</span></div>
+                  <div><strong>Device:</strong> <span id="trackDevice">iPhone 15 Pro</span></div>
+                  <span class="status-badge in-progress" id="trackBadge">In Progress</span>
+                </div>
+                <div class="status-pipeline">
+                  <div class="pipeline-step completed" id="step-1">
+                    <div class="step-dot">✓</div>
+                    <span>Received</span>
+                  </div>
+                  <div class="pipeline-step completed" id="step-2">
+                    <div class="step-dot">✓</div>
+                    <span>Diagnosed</span>
+                  </div>
+                  <div class="pipeline-step active" id="step-3">
+                    <div class="step-dot">3</div>
+                    <span>In Repair</span>
+                  </div>
+                  <div class="pipeline-step" id="step-4">
+                    <div class="step-dot">4</div>
+                    <span>QC Test</span>
+                  </div>
+                  <div class="pipeline-step" id="step-5">
+                    <div class="step-dot">5</div>
+                    <span>Ready</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="section-container stats-grid">
+          <div class="stat-item">
+            <div class="number">18,500+</div>
+            <div class="label">Smartphones Repaired</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">20 Mins</div>
+            <div class="label">Average Screen Repair Time</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">99.4%</div>
+            <div class="label">Data Safety Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">4.9 / 5</div>
+            <div class="label">Customer Review Score</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Services Highlights -->
+      <div class="section-padding">
+        <div class="section-container">
+          <div class="section-title-wrap">
+            <div class="section-tag"><span class="dot"></span><span>Expert Mobile Services</span></div>
+            <h2 class="section-heading">What We <span class="gradient-text">Fix Daily</span></h2>
+            <p class="section-subtext">From cracked OLED panels to microscopic motherboard repairs, our certified
+              micro-soldering technicians handle it all.</p>
+          </div>
+
+          <div class="services-quick-grid">
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                  <line x1="12" x2="12.01" y1="18" y2="18" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Glass & Screen Repair</h3>
+              <p class="service-card-desc">Shattered glass, non-responsive touch screen, or dead pixels. Restored with
+                original color calibration & TrueTone.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$69</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="16" height="10" x="2" y="7" rx="2" ry="2" />
+                  <line x1="22" x2="22" y1="11" y2="13" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Battery Replacement</h3>
+              <p class="service-card-desc">Fast-draining battery, unexpected shutdowns, or battery health warnings.
+                Replace with brand new high-capacity cells.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$49</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Water Damage Rescue</h3>
+              <p class="service-card-desc">Ultrasonic board wash, corrosion removal, and emergency data extraction for
+                phones dropped in water or sea.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$79</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Camera & Lens Fix</h3>
+              <p class="service-card-desc">Blurry photos, broken camera glass lens, focus motor buzzing, or black camera
+                preview screen.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$59</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Charging Port & Speaker</h3>
+              <p class="service-card-desc">Loose charging cable connection, slow charging, distorted ear speaker, or
+                broken microphone flex cable.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$45</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                  <path d="M7 7h10M7 12h10M7 17h10" />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Micro-Soldering Logic Board</h3>
+              <p class="service-card-desc">Complex motherboard chip replacement, short circuit detection, NAND storage
+                upgrades, and no-power diagnosis.</p>
+              <div class="service-card-footer">
+                <div class="price-tag">From <strong>$119</strong></div>
+                <a href="#calculator" class="btn btn-outline" style="padding:0.4rem 0.9rem; font-size:0.85rem;"
+                  data-page="calculator">Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: SERVICES CATALOG -->
+    <section class="page-view" id="page-services">
+      <div class="section-padding">
+        <div class="section-container">
+          <div class="section-title-wrap">
+            <div class="section-tag"><span class="dot"></span><span>Complete Service Catalog</span></div>
+            <h2 class="section-heading">Supported Brands & <span class="gradient-text">Models</span></h2>
+            <p class="section-subtext">Filter by your device brand to view available repair services, turn-around times,
+              and warranty levels.</p>
+          </div>
+
+          <div class="catalog-filter-bar">
+            <button class="filter-btn active" data-filter="all">All Brands</button>
+            <button class="filter-btn" data-filter="apple">Apple iPhone</button>
+            <button class="filter-btn" data-filter="samsung">Samsung Galaxy</button>
+            <button class="filter-btn" data-filter="google">Google Pixel</button>
+            <button class="filter-btn" data-filter="ipad">iPad & Tablets</button>
+          </div>
+
+          <div class="catalog-grid" id="catalogGrid">
+            <!-- Item 1 -->
+            <div class="catalog-item" data-brand="apple">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge">Apple iPhone</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $89</span>
+                </div>
+                <h3 class="catalog-title">iPhone 15 / 15 Pro / 15 Pro Max</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Super Retina XDR OLED screen replacement, battery
+                  renewal, titanium back glass laser removal.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> 20-Min Screen Replacement</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> TrueTone & FaceID Preserved</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> 90-Day Unconditional Warranty</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="catalog-item" data-brand="apple">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge">Apple iPhone</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $79</span>
+                </div>
+                <h3 class="catalog-title">iPhone 14 / 14 Plus / 14 Pro</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">OLED screen assembly, high-capacity battery cell
+                  replacement, rear camera glass repairs.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> 20-30 Min Turnaround</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Genuine OEM Quality Parts</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Free Water-Seal Re-application</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="catalog-item" data-brand="samsung">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge"
+                    style="background:rgba(0,242,254,0.15); color:var(--cyan-primary); border-color:var(--cyan-primary);">Samsung
+                    Galaxy</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $99</span>
+                </div>
+                <h3 class="catalog-title">Galaxy S24 / S24 Ultra / S23</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Dynamic AMOLED 2X panel fix, S-Pen digitizer
+                  recalibration, fast charging port flex cable replacement.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Official Samsung Service Pack Screens</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> In-Display Fingerprint Sensor Test</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> 90-Day Warranty Included</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="catalog-item" data-brand="samsung">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge"
+                    style="background:rgba(0,242,254,0.15); color:var(--cyan-primary); border-color:var(--cyan-primary);">Samsung
+                    Galaxy</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $129</span>
+                </div>
+                <h3 class="catalog-title">Galaxy Z Fold 5 / Z Flip 5</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Flexible inner display replacement, hinge
+                  mechanism cleaning, outer screen repairs.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Master Foldable Tech Certified</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Hinge Alignment Calibration</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Same-Day Service</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="catalog-item" data-brand="google">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge"
+                    style="background:rgba(0,230,118,0.15); color:var(--emerald-green); border-color:var(--emerald-green);">Google
+                    Pixel</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $85</span>
+                </div>
+                <h3 class="catalog-title">Pixel 8 / 8 Pro / 7a</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Actua display repair, Tensor thermal pad service,
+                  wireless charging coil fix.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> OEM Pixel Display Assemblies</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Camera Bar Glass Replacement</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> 90-Day Parts & Labor Warranty</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="catalog-item" data-brand="ipad">
+              <div>
+                <div class="catalog-header">
+                  <span class="device-badge"
+                    style="background:rgba(255,145,0,0.15); color:var(--amber-orange); border-color:var(--amber-orange);">iPad
+                    & Tablet</span>
+                  <span style="font-weight:700; color:var(--cyan-primary);">From $95</span>
+                </div>
+                <h3 class="catalog-title">iPad Pro / Air / Mini Series</h3>
+                <p style="font-size:0.85rem; color:var(--text-muted);">Digitizer glass replacement, LCD/OLED panel swap,
+                  bent aluminum frame reshaping & battery.</p>
+                <ul class="specs-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Apple Pencil Pressure Sensitivity Test</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> High Capacity Battery Replacement</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg> Precision Dust-Free Bond</li>
+                </ul>
+              </div>
+              <a href="#calculator" class="btn btn-primary" style="width:100%; margin-top:1rem;"
+                data-page="calculator">Book This Model</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: INSTANT REPAIR COST ESTIMATOR -->
+    <section class="page-view" id="page-calculator">
+      <div class="section-padding">
+        <div class="section-container">
+          <div class="section-title-wrap">
+            <div class="section-tag"><span class="dot"></span><span>Real-Time Quote Wizard</span></div>
+            <h2 class="section-heading">Instant Repair <span class="gradient-text">Cost Estimator</span></h2>
+            <p class="section-subtext">Select your device and issues below to calculate your guaranteed repair quote
+              instantly with no hidden fees.</p>
+          </div>
+
+          <div class="estimator-wrapper">
+            <div class="estimator-grid">
+              <div class="estimator-steps">
+                <!-- Step 1: Brand -->
+                <div class="step-block">
+                  <div class="step-label">Step 1: Select Brand</div>
+                  <div class="brand-select-grid" id="estimatorBrandGrid">
+                    <div class="brand-option-card selected" data-brand="apple">Apple</div>
+                    <div class="brand-option-card" data-brand="samsung">Samsung</div>
+                    <div class="brand-option-card" data-brand="google">Google</div>
+                    <div class="brand-option-card" data-brand="ipad">iPad</div>
+                  </div>
+                </div>
+
+                <!-- Step 2: Model -->
+                <div class="step-block">
+                  <div class="step-label">Step 2: Select Device Model</div>
+                  <select class="form-select-custom" id="estimatorModelSelect">
+                    <!-- Populated dynamically by script.js -->
+                  </select>
+                </div>
+
+                <!-- Step 3: Issues -->
+                <div class="step-block">
+                  <div class="step-label">Step 3: Select Problem(s)</div>
+                  <div class="issues-checkbox-grid">
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="screen" data-price="79" checked>
+                      <span>Cracked Glass / OLED ($79)</span>
+                    </label>
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="battery" data-price="49">
+                      <span>Degraded Battery ($49)</span>
+                    </label>
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="charging" data-price="45">
+                      <span>Charging Port Issue ($45)</span>
+                    </label>
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="camera" data-price="59">
+                      <span>Camera / Lens Fix ($59)</span>
+                    </label>
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="backglass" data-price="65">
+                      <span>Rear Glass Crack ($65)</span>
+                    </label>
+                    <label class="issue-check-label">
+                      <input type="checkbox" value="water" data-price="79">
+                      <span>Water Damage Wash ($79)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Step 4: Service Method -->
+                <div class="step-block" style="margin-bottom:0;">
+                  <div class="step-label">Step 4: Fulfillment Method</div>
+                  <select class="form-select-custom" id="estimatorFulfillment">
+                    <option value="store" data-fee="0">In-Store Walk-In (Express 20-30 Mins) - $0</option>
+                    <option value="van" data-fee="25">Mobile Tech Repair Van (We Come To You) - +$25</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Summary Panel -->
+              <div class="estimator-summary-panel">
+                <div>
+                  <h3 class="summary-header">Quote Breakdown</h3>
+                  <div class="summary-list">
+                    <div class="summary-item">
+                      <span>Selected Device:</span>
+                      <strong id="sumDevice" style="color:#fff;">iPhone 15 Pro</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Repairs Selected:</span>
+                      <strong id="sumRepairs" style="color:#fff;">1 Service</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Estimated Time:</span>
+                      <strong id="sumTime" style="color:var(--emerald-green);">20-30 Mins</strong>
+                    </div>
+                    <div class="summary-item">
+                      <span>Parts Tier:</span>
+                      <strong style="color:#fff;">OEM Original Grade</strong>
+                    </div>
+                    <div class="summary-item total">
+                      <span>Total Guaranteed Quote:</span>
+                      <span class="amount" id="sumTotalCost">$79.00</span>
+                    </div>
+                  </div>
+
+                  <div class="warranty-badge-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <p>Includes 90-Day Parts & Labor Warranty + Free Diagnostic Check</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary" id="btnBookFromEstimator" style="width:100%;">
+                  <span>Reserve This Repair Slot</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: BOOKING & CONTACT FORM -->
+    <section class="page-view" id="page-contact">
+      <div class="section-padding">
+        <div class="section-container">
+          <div class="section-title-wrap">
+            <div class="section-tag"><span class="dot"></span><span>Schedule Service</span></div>
+            <h2 class="section-heading">Book Your <span class="gradient-text">Repair Appointment</span></h2>
+            <p class="section-subtext">Lock in your time slot or request our Mobile Repair Van to come to your home or
+              office.</p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Booking Form -->
+            <div class="booking-form-card">
+              <form id="bookingForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bookName">Full Name *</label>
+                    <input type="text" id="bookName" class="form-control" placeholder="John Doe" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bookPhone">Phone Number *</label>
+                    <input type="tel" id="bookPhone" class="form-control" placeholder="(555) 000-0000" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bookEmail">Email Address</label>
+                    <input type="email" id="bookEmail" class="form-control" placeholder="john@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bookDeviceModel">Device & Model *</label>
+                    <input type="text" id="bookDeviceModel" class="form-control" placeholder="e.g. iPhone 15 Pro"
+                      required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="bookDate">Preferred Date *</label>
+                    <input type="date" id="bookDate" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="bookTime">Preferred Time Slot *</label>
+                    <select id="bookTime" class="form-control" required>
+                      <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
+                      <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
+                      <option value="01:00 PM - 03:00 PM" selected>01:00 PM - 03:00 PM</option>
+                      <option value="03:00 PM - 05:00 PM">03:00 PM - 05:00 PM</option>
+                      <option value="05:00 PM - 07:00 PM">05:00 PM - 07:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="bookServiceType">Service Location Option</label>
+                  <select id="bookServiceType" class="form-control">
+                    <option value="In-Store Walk-In">In-Store Walk-In (Downtown Flagship Lab)</option>
+                    <option value="Mobile Tech Van Visit">Mobile Tech Repair Van (On-Site at My Address)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="bookNotes">Issue Description / Special Requests</label>
+                  <textarea id="bookNotes" class="form-control" rows="3"
+                    placeholder="Describe how the phone broke or any secondary issues..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; padding:0.9rem;">
+                  <span>Confirm Repair Reservation</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Info & Store Location -->
+            <div>
+              <div class="contact-info-card">
+                <h3 class="summary-header">Flagship Service Hub</h3>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <div class="info-details">
+                    <h4>Lab Address</h4>
+                    <p>742 Tech Innovation Boulevard, Suite 100<br>Metropolis, NY 10001</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </div>
+                  <div class="info-details">
+                    <h4>Phone & Emergency Dispatch</h4>
+                    <p><a href="tel:08025687197" style="color:var(--cyan-primary); text-decoration:underline;">0802 568
+                        7197</a><br>Direct Tech Line: 0802 568 7197</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div class="info-details">
+                    <h4>Working Hours</h4>
+                    <p>Mon - Sat: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 5:00 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Accordion -->
+              <div class="faq-accordion">
+                <h3 style="font-family:var(--font-heading); font-size:1.2rem; font-weight:700; margin-bottom:1rem;">
+                  Frequently Asked Questions</h3>
+
+                <div class="faq-item active">
+                  <button class="faq-question">
+                    <span>Will I lose any personal data during the repair?</span>
+                    <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div class="faq-answer">
+                    <p>No. We perform non-destructive hardware repairs without wiping your internal storage. We always
+                      enforce military-grade privacy protocols, so your photos, messages, and banking data remain
+                      untouched.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-question">
+                    <span>How long does a screen replacement take?</span>
+                    <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Most standard glass and OLED screen replacements are completed in 20 to 30 minutes. You can relax
+                      in our customer lounge with free Wi-Fi and coffee while we work.</p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button class="faq-question">
+                    <span>What does your 90-day warranty cover?</span>
+                    <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div class="faq-answer">
+                    <p>Our warranty covers all defect-related issues with replaced parts or touch responsiveness. If the
+                      installed screen or battery malfunctions, we replace it completely free of charge.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOOKING CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-card">
+      <div class="modal-icon-success">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h3 style="font-family:var(--font-heading); font-size:1.6rem; font-weight:700; margin-bottom:0.5rem;">Repair
+        Reservation Confirmed!</h3>
+      <p style="color:var(--text-muted); font-size:0.95rem;">Your appointment has been locked into our technician
+        schedule.</p>
+
+      <div class="modal-ticket-box">
+        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.25rem;">YOUR REPAIR TICKET #</div>
+        <div class="ticket-number" id="modalTicketCode">PULSE-98421</div>
+      </div>
+
+      <div
+        style="text-align:left; font-size:0.85rem; color:var(--text-muted); background:rgba(0,0,0,0.3); padding:1rem; border-radius:var(--radius-md); margin-bottom:1.5rem;">
+        <div><strong>Customer:</strong> <span id="modalCustName">John Doe</span></div>
+        <div><strong>Device:</strong> <span id="modalCustDevice">iPhone 15 Pro</span></div>
+        <div><strong>Slot:</strong> <span id="modalCustSlot">Tomorrow at 01:00 PM</span></div>
+        <div><strong>Type:</strong> <span id="modalCustType">In-Store Walk-In</span></div>
+      </div>
+
+      <button class="btn btn-primary" id="btnModalClose" style="width:100%;">Back To Main Page</button>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom:1rem;">
+            <div class="logo-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+            </div>
+            <div class="logo-text">PULSE <span>REPAIR</span></div>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem; max-width:320px;">
+            Metropolis' premier mobile tech lab specializing in express screen replacement, battery repair,
+            micro-soldering, and data recovery.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home" data-page="home">Home</a></li>
+            <li><a href="#services" data-page="services">Services & Models</a></li>
+            <li><a href="#calculator" data-page="calculator">Instant Estimator</a></li>
+            <li><a href="#contact" data-page="contact">Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Repair Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services" data-page="services">iPhone Screen Repair</a></li>
+            <li><a href="#services" data-page="services">Samsung OLED Replacement</a></li>
+            <li><a href="#services" data-page="services">Battery Health Renewal</a></li>
+            <li><a href="#services" data-page="services">Water Damage Rescue</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Store Hours</h4>
+          <ul class="footer-links">
+            <li><span style="color:#fff;">Mon - Fri:</span> 8am - 8pm</li>
+            <li><span style="color:#fff;">Saturday:</span> 9am - 7pm</li>
+            <li><span style="color:#fff;">Sunday:</span> 10am - 5pm</li>
+            <li><span style="color:var(--cyan-primary); font-weight:600;">24/7 Van Service Available</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Pulse Mobile Repair & Tech Labs. All Rights Reserved.</div>
+        <div>Built for speed, accuracy, and precision.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Logic -->
+  <script src="script.js"></script>
 </body>
+
 </html>

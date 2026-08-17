@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Mobile Repair | Page Redirect</title>
+  <script>
+    // GitHub Pages SPA 404 Redirect Handler
+    // Converts path-based URLs to hash-based URLs for the SPA router
+    function redirectToIndex(withHash) {
+      var path = window.location.pathname;
+      var hash = window.location.hash || '';
+      var segments = path.split('/').filter(function(s) { return s; });
+
+      if (segments.length > 1) {
+        // Project site: /repo-name/page -> /repo-name/index.html#page
+        window.location.replace('/' + segments[0] + '/index.html' + (withHash ? '#' + segments.slice(1).join('/') + hash : ''));
+      } else if (segments.length === 1) {
+        // Project site root or user site page
+        window.location.replace('/' + segments[0] + '/index.html' + (withHash ? hash : ''));
+      } else {
+        window.location.replace('/index.html' + (withHash ? hash : ''));
+      }
+    }
+
+    (function() {
+      if (window.location.pathname.indexOf('index.html') !== -1 || window.location.pathname.indexOf('404.html') !== -1) {
+        return;
+      }
+      redirectToIndex(true);
+    })();
+  </script>
+  <style>
+    body {
+      background: #090d16;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .redirect-card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      padding: 2.5rem;
+      border-radius: 16px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    a {
+      color: #00f2fe;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-card">
+    <h2>Redirecting to Pulse Repair...</h2>
+    <p>If you are not redirected automatically, <a href="#" onclick="redirectToIndex(true); return false;">click here to return to Home</a>.</p>
+  </div>
+</body>
+</html>
