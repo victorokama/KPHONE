@@ -4,6 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   // --- 1. SINGLE-PAGE SPA HASH ROUTER ---
   const views = document.querySelectorAll('.page-view');
   const navLinks = document.querySelectorAll('[data-page]');
@@ -62,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash !== `#${targetPage}`) {
         window.location.hash = targetPage;
       }
-      navigateTo(targetPage);
+      // navigateTo is handled by the hashchange event listener above
     });
   });
 

@@ -1386,45 +1386,50 @@ img {
   }
 }
 
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: flex;
+@media (max-width: 480px) {
+  .header-actions {
+    gap: 0.5rem;
   }
-  .main-nav {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    background: rgba(9, 13, 22, 0.98);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-glass);
-    padding: 2rem;
+  .phone-quick-link span {
     display: none;
   }
-  .main-nav.active {
-    display: block;
+  .phone-quick-link {
+    padding: 0.5rem;
   }
-  .nav-list {
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: center;
+  .nav-cta {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
   }
-  .form-row {
+  .hero-image-card img {
+    height: 260px;
+  }
+  .stats-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .issues-checkbox-grid {
-    grid-template-columns: 1fr;
+  .estimator-steps {
+    padding: 1.5rem;
   }
-  .brand-select-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .estimator-summary-panel {
+    padding: 1.5rem;
   }
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .booking-form-card {
+    padding: 1.5rem;
   }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+  .contact-info-card {
+    padding: 1.5rem;
+  }
+  .service-card {
+    padding: 1.25rem;
+  }
+  .service-card-title {
+    font-size: 1.1rem;
+  }
+  .modal-card {
+    padding: 1.75rem;
+  }
+  .section-padding {
+    padding: 3.5rem 0;
   }
 }
 

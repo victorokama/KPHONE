@@ -6,12 +6,28 @@
   <title>Pulse Mobile Repair | Page Redirect</title>
   <script>
     // GitHub Pages SPA 404 Redirect Handler
-    // Preserves target hash or path and redirects to index.html
-    (function() {
+    // Converts path-based URLs to hash-based URLs for the SPA router
+    function redirectToIndex(withHash) {
       var path = window.location.pathname;
-      var repoName = path.split('/')[1] || '';
-      var targetHash = window.location.hash || '#home';
-      window.location.replace(window.location.origin + (repoName ? '/' + repoName : '') + '/' + targetHash);
+      var hash = window.location.hash || '';
+      var segments = path.split('/').filter(function(s) { return s; });
+
+      if (segments.length > 1) {
+        // Project site: /repo-name/page -> /repo-name/index.html#page
+        window.location.replace('/' + segments[0] + '/index.html' + (withHash ? '#' + segments.slice(1).join('/') + hash : ''));
+      } else if (segments.length === 1) {
+        // Project site root or user site page
+        window.location.replace('/' + segments[0] + '/index.html' + (withHash ? hash : ''));
+      } else {
+        window.location.replace('/index.html' + (withHash ? hash : ''));
+      }
+    }
+
+    (function() {
+      if (window.location.pathname.indexOf('index.html') !== -1 || window.location.pathname.indexOf('404.html') !== -1) {
+        return;
+      }
+      redirectToIndex(true);
     })();
   </script>
   <style>
@@ -43,7 +59,7 @@
 <body>
   <div class="redirect-card">
     <h2>Redirecting to Pulse Repair...</h2>
-    <p>If you are not redirected automatically, <a href="index.html">click here to return to Home</a>.</p>
+    <p>If you are not redirected automatically, <a href="#" onclick="redirectToIndex(true); return false;">click here to return to Home</a>.</p>
   </div>
 </body>
 </html>
