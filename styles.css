@@ -1448,3 +1448,9 @@ body {
    padding: 15px 25px;
    boarder-radius: 10px;
 }
+      .btn-primary {
+   background-color: black !important;
+   color: white !important;
+   padding: 15px 25px !important;
+   boarder-radius: 10px !important;
+}
