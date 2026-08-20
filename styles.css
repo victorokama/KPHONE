@@ -1433,7 +1433,7 @@ img {
   }
 }
 .btn-primary {
-   background-color: black;
+   background-color: red;
    color: white;
    padding: 15px 25px;
    boarder-radius: 10px;
