@@ -1531,3 +1531,6 @@ h1 {
   padding: 15px 25px;
   border-radius: 10px;
 }
+.btn-primary:hover {
+   background: white;
+   color: black;
