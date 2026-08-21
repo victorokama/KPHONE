@@ -1537,7 +1537,7 @@ h1 {
 }      
 .btn-primary {
       margin: 20px;
-      boarder: 3px solid black;
+      border: 3px solid black;
       padding: 15px 25px;
  }
 .btn-primary {
@@ -1545,4 +1545,7 @@ h1 {
 }
 .btn-primary {
    margin: 50px;
+}
+.btn-primary {
+   border 10px solid black;
 }
