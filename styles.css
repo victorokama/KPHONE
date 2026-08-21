@@ -1534,8 +1534,9 @@ h1 {
 .btn-primary:hover {
    background: white;
    color: black;
-   .btn-primary {
+   }      
+ .btn-primary {
       margin: 20px;
       boarder: 3px solid black;
       padding: 15px 25px;
-   }      
+ }
