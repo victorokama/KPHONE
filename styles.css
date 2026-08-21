@@ -1540,3 +1540,6 @@ h1 {
       boarder: 3px solid black;
       padding: 15px 25px;
  }
+.btn-primary {
+   padding: 50px;
+}
