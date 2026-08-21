@@ -1537,6 +1537,6 @@ h1 {
 }      
 .btn-primary {
       margin: 20px;
-      boarder: 3px solid black;
+      boarder radius: 3px solid black;
       padding: 15px 25px;
  }
