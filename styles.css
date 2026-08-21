@@ -1535,4 +1535,8 @@ h1 {
    background: white;
    color: black;
 }      
-
+.btn-primary {
+      margin: 20px;
+      boarder: 3px solid black;
+      padding: 15px 25px;
+ }
