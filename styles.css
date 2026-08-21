@@ -1526,8 +1526,8 @@ h1 {
   font-size: 60px;
 }
 .btn-primary {
-	background-color: black;
-	cplpr: black;
-	padding: 15px 25px;
-	boader-radius: 10px;
+  background: black;
+  color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 10px;
 }
